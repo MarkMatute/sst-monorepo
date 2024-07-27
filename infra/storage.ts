@@ -1,5 +1,7 @@
 // Create an S3 bucket
-export const bucket = new sst.aws.Bucket("Uploads");
+export const bucket = new sst.aws.Bucket("Uploads", {
+  cors: true,
+});
 
 // Create DDB
 export const table = new sst.aws.Dynamo("Notes", {
@@ -12,6 +14,5 @@ export const table = new sst.aws.Dynamo("Notes", {
     rangeKey: "noteId",
   },
 });
-
 
 export const secret = new sst.Secret("StripeSecretKey");
