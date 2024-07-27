@@ -12,3 +12,6 @@ export const table = new sst.aws.Dynamo("Notes", {
     rangeKey: "noteId",
   },
 });
+
+
+export const secret = new sst.Secret("StripeSecretKey");

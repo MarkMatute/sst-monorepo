@@ -1,10 +1,10 @@
-import { table } from "./storage";
+import { table, secret } from "./storage";
 
 export const api = new sst.aws.ApiGatewayV2("Api", {
   transform: {
     route: {
       handler: {
-        link: [table],
+        link: [table, secret],
       },
       args: {
         auth: { iam: true },
@@ -31,4 +31,8 @@ api.route("PUT /notes/{id}", {
 
 api.route("DELETE /notes/{id}", {
   handler: "packages/functions/src/delete.main",
+});
+
+api.route("POST /billing", {
+  handler: "packages/functions/src/billing.main",
 });
