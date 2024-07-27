@@ -21,3 +21,11 @@ api.route("GET /notes/{id}", {
 api.route("GET /notes", {
   handler: "packages/functions/src/list.main",
 });
+
+api.route("PUT /notes/{id}", {
+  handler: "packages/functions/src/update.main",
+});
+
+api.route("DELETE /notes/{id}", {
+  handler: "packages/functions/src/delete.main",
+});
