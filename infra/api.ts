@@ -17,3 +17,7 @@ api.route("POST /notes", {
 api.route("GET /notes/{id}", {
   handler: "packages/functions/src/get.main",
 });
+
+api.route("GET /notes", {
+  handler: "packages/functions/src/list.main",
+});
